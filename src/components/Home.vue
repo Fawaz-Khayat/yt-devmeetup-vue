@@ -37,6 +37,8 @@
             v-for="meetup in meetups"
             :key="meetup.id"
             :src="meetup.imageUrl"
+            @click.native="onLoadMeetup(meetup.id)"
+            style="cursor:pointer;"
           > <div class="title">
               {{ meetup.title }}
             </div>
@@ -65,9 +67,14 @@ export default {
   data () {
     return {
       meetups: [
-        { imageUrl: 'https://cdn.pixabay.com/photo/2015/03/11/12/31/new-york-668616_960_720.jpg', id: 'fadsfasdgaeqg', title: 'Meetup in New York'},
-        { imageUrl: 'https://cdn.pixabay.com/photo/2014/06/01/09/25/paris-359503_960_720.jpg', id: 'dfasdfewqrfad', title: 'Meetup in Paris'}
+        { imageUrl: require('@/assets/newyork.jpg'), id: 'fadsfasdgaeqg', title: 'Meetup in New York'},
+        { imageUrl: require('@/assets/paris.jpg'), id: 'dfasdfewqrfad', title: 'Meetup in Paris'}
       ]
+    }
+  },
+  methods: {
+    onLoadMeetup (id) {
+      this.$router.push('/meetups/' + id)
     }
   }
 }
