@@ -1,7 +1,9 @@
 <template>
   <v-app>
-
-    <v-toolbar>
+    <v-toolbar
+    dark
+    color="primary"
+    >
       <v-toolbar-side-icon
       class="hidden-sm-and-up"
       @click="sideNav = !sideNav"
