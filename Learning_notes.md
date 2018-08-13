@@ -1,6 +1,7 @@
 To use custom theme, define the custom colors in src/plugins/vuetify.js
 The following code defines custom colors:
 
+```
 Vue.use(Vuetify, {
   theme: {
     primary: colors.red.darken2,
@@ -13,3 +14,4 @@ Vue.use(Vuetify, {
   }
 })
 
+```
