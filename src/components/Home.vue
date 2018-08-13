@@ -27,10 +27,10 @@
         </v-btn>
       </v-flex>
     </v-layout>
-    <v-layout 
+    <v-layout
       row
       wrap
-      class="mt-2"  
+      class="mt-2"
     > <v-flex xs12>
         <v-carousel>
           <v-carousel-item
