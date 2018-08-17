@@ -64,12 +64,9 @@
 <script>
 export default {
   name: 'Home',
-  data () {
-    return {
-      meetups: [
-        { imageUrl: require('@/assets/newyork.jpg'), id: 'fadsfasdgaeqg', title: 'Meetup in New York'},
-        { imageUrl: require('@/assets/paris.jpg'), id: 'dfasdfewqrfad', title: 'Meetup in Paris'}
-      ]
+  computed: {
+    meetups () {
+      return this.$store.getters.featuredMeetups
     }
   },
   methods: {
