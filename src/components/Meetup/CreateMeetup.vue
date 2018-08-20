@@ -11,7 +11,7 @@
     </v-layout>
     <v-layout row>
       <v-flex xs12>
-        <form>
+        <form @submit.prevent="onCreateMeetup">
           <v-layout row>
             <v-flex
               xs12
@@ -63,7 +63,7 @@
               sm6
               offset-sm3
             >
-              <img :src="imageUrl">
+              <img :src="imageUrl" height="150px">
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -87,7 +87,11 @@
               sm6
               offset-sm3
             >
-              <v-btn :disabled="!formIsValid" class="primary">Create Meetup</v-btn>
+              <v-btn
+                :disabled="!formIsValid"
+                class="primary"
+                type="submit"
+              >Create Meetup</v-btn>
             </v-flex>
           </v-layout>
         </form>
@@ -112,6 +116,27 @@ export default {
         this.location !== '' &&
         this.imageUrl !== '' &&
         this.description !== ''
+    }
+  },
+  methods: {
+    onCreateMeetup () {
+      if (!this.formIsValid) {
+        return
+      }
+      let date = new Date()
+      const meetupData = {
+        title: this.title,
+        location: this.location,
+        imageUrl: this.imageUrl,
+        description: this.description,
+        date,
+        id: date.getTime()
+      }
+      this.$store.dispatch('createMeetup', meetupData)
+      this.$router.push('/meetups')
+    },
+    popUp () {
+      alert('alert box')
     }
   }
 }
