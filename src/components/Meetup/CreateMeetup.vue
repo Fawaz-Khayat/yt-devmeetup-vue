@@ -87,7 +87,7 @@
               sm6
               offset-sm3
             >
-              <v-btn class="primary">Create Meetup</v-btn>
+              <v-btn :disabled="!formIsValid" class="primary">Create Meetup</v-btn>
             </v-flex>
           </v-layout>
         </form>
@@ -104,6 +104,14 @@ export default {
       location: '',
       imageUrl: '',
       description: ''
+    }
+  },
+  computed: {
+    formIsValid () {
+      return this.title !== '' &&
+        this.location !== '' &&
+        this.imageUrl !== '' &&
+        this.description !== ''
     }
   }
 }
